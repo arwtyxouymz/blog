@@ -1,0 +1,8 @@
+const WHITE = '#FFFFFF'
+const BLACK20 = '#F8F8F8'
+const BLACK40 = '#E8E8E8'
+const BLACK60 = '#ADADAD'
+const BLACK80 = '#5C5C5C'
+const BLACK = '#303030'
+
+export { WHITE, BLACK20, BLACK40, BLACK60, BLACK80, BLACK }

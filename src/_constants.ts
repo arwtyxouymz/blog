@@ -6,3 +6,12 @@ const BLACK80 = '#5C5C5C'
 const BLACK = '#303030'
 
 export { WHITE, BLACK20, BLACK40, BLACK60, BLACK80, BLACK }
+
+export const BREAKPOINTS = {
+  mobileS: 320,
+  mobileM: 375,
+  mobileL: 425,
+  tablet: 768,
+  laptop: 1024,
+  laptopL: 1440,
+}

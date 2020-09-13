@@ -2,7 +2,7 @@ import React from 'react'
 import NavigationBar from '../molecules/NavigationBar'
 import SiteTitle from '../molecules/SiteTitle'
 import styled from 'styled-components'
-import { BREAKPOINTS } from '../_constants'
+import { media } from '../_constants'
 
 const Header: React.FC = () => {
   const siteTitle = 'One Step Forward'
@@ -24,7 +24,7 @@ const StyledHeader = styled.header`
   justify-content: center;
   align-items: center;
 
-  @media screen and (min-width: ${BREAKPOINTS.tablet}px) {
+  ${media.tablet} {
     height: 60vh;
   }
 `

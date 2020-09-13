@@ -15,3 +15,16 @@ export const BREAKPOINTS = {
   laptop: 1024,
   laptopL: 1440,
 }
+
+const customMediaQuery = (minWidth: number): string =>
+  `@media screen and (min-width: ${minWidth}px)`
+
+export const media = {
+  custom: customMediaQuery,
+  mobileS: customMediaQuery(BREAKPOINTS.mobileS),
+  mobileM: customMediaQuery(BREAKPOINTS.mobileM),
+  mobileL: customMediaQuery(BREAKPOINTS.mobileL),
+  tablet: customMediaQuery(BREAKPOINTS.tablet),
+  laptop: customMediaQuery(BREAKPOINTS.laptop),
+  laptopL: customMediaQuery(BREAKPOINTS.laptopL),
+}

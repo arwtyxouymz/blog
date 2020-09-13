@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import FlexContainer from '../atoms/FlexContainer'
-import PText from '../atoms/PText'
+import FlexContainer from '../atoms/containers/FlexContainer'
+import PText from '../atoms/texts/PText'
 import { BLACK20, BLACK60 } from '../_constants'
 
 const Footer: React.FC = () => {

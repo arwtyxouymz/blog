@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import H1Text from '../atoms/H1Text'
-import PText from '../atoms/PText'
+import H1Text from '../atoms/texts/H1Text'
+import PText from '../atoms/texts/PText'
 import { WHITE } from '../_constants'
 
 interface Props {

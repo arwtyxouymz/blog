@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import CardMain from '../molecules/CardMain'
 import CardFooter from '../molecules/CardFooter'
-import { BLACK40 } from '../_constants'
 
 interface Props {
   title: string
@@ -28,4 +27,8 @@ const Wrapper = styled.div`
   height: 300px;
   border-radius: 10px;
   box-shadow: 3px 3px 10px 5px rgba(0.5, 0.5, 0.5, 0.05);
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    transform: scale(1.05);
+  }
 `

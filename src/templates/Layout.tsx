@@ -1,17 +1,21 @@
 import React from 'react'
 import Head from '../organisms/Head'
-import Header from '../organisms/Header'
+import Header, { HeaderProps } from '../organisms/Header'
 import Footer from '../organisms/Footer'
 
-interface Props {
+interface Props extends HeaderProps {
   children: React.ReactNode
 }
 
-const Layout: React.FC<Props> = ({ children }: Props) => {
+const Layout: React.FC<Props> = ({
+  children,
+  coverTitle,
+  coverDescription,
+}: Props) => {
   return (
     <div>
       <Head />
-      <Header />
+      <Header coverTitle={coverTitle} coverDescription={coverDescription} />
       <main>{children}</main>
       <Footer />
     </div>

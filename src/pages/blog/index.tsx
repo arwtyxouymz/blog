@@ -1,48 +1,32 @@
 import React from 'react'
+import Link from 'next/link'
 import Layout from '../../templates/Layout'
 import Card from '../../organisms/Card'
 import FlexContainer from '../../atoms/containers/FlexContainer'
 import H2Text from '../../atoms/texts/H2Text'
 import { BlogHeader } from '../../types'
+import { getMetaData } from '../../plugins/markdown'
 
-const Blog: React.FC = () => {
-  const blogHeaders: BlogHeader[] = [
-    {
-      id: 1,
-      title: 'RustでWebサーバーを構築した',
-      description:
-        'Rust+Rocketで簡単なWebサーバーを作ったのでその手順を記します',
-      date: '2020-09-12',
-      tags: ['rust', 'rocket'],
-    },
-    {
-      id: 2,
-      title: 'MaaS現状のグローバル分析',
-      description: '各国におけるMaas基盤の現状と日本の進捗具合をまとめました',
-      date: '2020-09-13',
-      tags: ['business', 'MaaS'],
-    },
-    {
-      id: 3,
-      title: 'Next.jsでブログを作った',
-      description: 'Reactの勉強がてらNext.jsとSSRでブログを作りました',
-      date: '2020-09-11',
-      tags: ['React', 'Next.js', 'Frontend'],
-    },
-  ]
+interface Props {
+  blogHeaders: BlogHeader[]
+}
 
+const Blog: React.FC<Props> = ({ blogHeaders }: Props) => {
   return (
     <Layout>
       <H2Text>Blog</H2Text>
       <FlexContainer wrap={true} justify="center">
         {blogHeaders.map((header) => (
-          <Card
-            key={header.id}
-            title={header.title}
-            description={header.description}
-            date={header.date}
-            tags={header.tags}
-          />
+          <Link key={header.id} href="/blog/[id]" as={`/blog/${header.id}`}>
+            <a>
+              <Card
+                title={header.title}
+                description={header.description}
+                date={header.date}
+                tags={header.tags}
+              />
+            </a>
+          </Link>
         ))}
       </FlexContainer>
     </Layout>
@@ -50,3 +34,16 @@ const Blog: React.FC = () => {
 }
 
 export default Blog
+
+interface StaticProps {
+  props: { blogHeaders: BlogHeader[] }
+}
+
+export async function getStaticProps(): Promise<StaticProps> {
+  const allBlogHeaders = getMetaData()
+  return {
+    props: {
+      blogHeaders: allBlogHeaders,
+    },
+  }
+}

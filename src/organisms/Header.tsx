@@ -4,12 +4,27 @@ import SiteTitle from '../molecules/SiteTitle'
 import styled from 'styled-components'
 import { media } from '../_constants'
 
-const Header: React.FC = () => {
+export interface HeaderProps {
+  coverTitle?: string
+  coverDescription?: string
+}
+
+const Header: React.FC<HeaderProps> = ({
+  coverTitle,
+  coverDescription,
+}: HeaderProps) => {
   const siteTitle = 'One Step Forward'
+  const siteSubtitle = 'This is subtitle'
   return (
     <StyledHeader>
-      <NavigationBar navItems={['Home', 'About', 'Blog']} />
-      <SiteTitle title={siteTitle} subtitle="This is subtitle" />
+      <NavigationBar
+        leftTitle={coverTitle && siteTitle}
+        navItems={['Home', 'About', 'Blog']}
+      />
+      <SiteTitle
+        title={coverTitle ? coverTitle : siteTitle}
+        subtitle={coverDescription ? coverDescription : siteSubtitle}
+      />
     </StyledHeader>
   )
 }

@@ -11,7 +11,13 @@ interface Props {
 const NavigationBar: React.FC<Props> = ({ leftTitle, navItems }: Props) => {
   return (
     <Nav>
-      {leftTitle && <H2>{leftTitle}</H2>}
+      {leftTitle && (
+        <H2>
+          <Link href="/">
+            <a>{leftTitle}</a>
+          </Link>
+        </H2>
+      )}
       <Ul>
         {navItems.map((item) => (
           <Li key={item}>
@@ -36,15 +42,16 @@ const Nav = styled.nav`
   color: ${WHITE};
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
 `
 const H2 = styled.h2`
   margin: 0;
   padding: 15px;
+  margin: auto 15px;
 `
 
 const Ul = styled.ul`
-  margin: 0;
+  margin: auto 15px;
   padding: 0;
   list-style: none;
   display: flex;

@@ -9,13 +9,17 @@
     "lint": "eslint src --ext .ts,.tsx"
   },
   "dependencies": {
+    "markdown-it": "^11.0.0",
+    "markdown-it-meta": "^0.0.1",
     "next": "9.5.3",
     "normalize.css": "^8.0.1",
+    "prismjs": "^1.21.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "styled-components": "^5.2.0"
   },
   "devDependencies": {
+    "@types/markdown-it": "^10.0.2",
     "@types/node": "^14.6.2",
     "@types/react": "^16.9.49",
     "@types/react-dom": "^16.9.8",

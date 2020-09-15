@@ -1,9 +1,15 @@
 import styled from 'styled-components'
 
-const H2Text = styled.h2<{ color?: string }>`
+interface Props {
+  color?: string
+  margin?: string
+  padding?: string
+}
+
+const H2Text = styled.h2<Props>`
   color: ${({ color }) => color};
-  margin: 0;
-  padding: 0;
+  margin: ${({ margin }) => margin || '0'};
+  padding: ${({ padding }) => padding || '0'};
 `
 
 export default H2Text

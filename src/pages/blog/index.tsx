@@ -1,9 +1,10 @@
 import React from 'react'
 import Link from 'next/link'
+import styled from 'styled-components'
 import Layout from '../../templates/Layout'
-import Card from '../../organisms/Card'
+import PageHeader from '../../molecules/PageHeader'
 import FlexContainer from '../../atoms/containers/FlexContainer'
-import H2Text from '../../atoms/texts/H2Text'
+import Card from '../../organisms/Card'
 import { BlogHeader } from '../../types'
 import { getMetaData } from '../../plugins/markdown'
 
@@ -14,7 +15,10 @@ interface Props {
 const Blog: React.FC<Props> = ({ blogHeaders }: Props) => {
   return (
     <Layout>
-      <H2Text>Blog</H2Text>
+      <PageHeader
+        pageTitle="Blog"
+        pageDescription="主に技術系やスタートアップ界隈のことについて書いていきます"
+      ></PageHeader>
       <FlexContainer wrap={true} justify="center">
         {blogHeaders.map((header) => (
           <Link key={header.id} href="/blog/[id]" as={`/blog/${header.id}`}>

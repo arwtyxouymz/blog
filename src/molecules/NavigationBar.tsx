@@ -9,8 +9,9 @@ interface Props {
 }
 
 const NavigationBar: React.FC<Props> = ({ leftTitle, navItems }: Props) => {
+  const titleExists = leftTitle !== undefined
   return (
-    <Nav>
+    <Nav titleExists={titleExists}>
       {leftTitle && (
         <H2>
           <Link href="/">
@@ -33,7 +34,7 @@ const NavigationBar: React.FC<Props> = ({ leftTitle, navItems }: Props) => {
 
 export default NavigationBar
 
-const Nav = styled.nav`
+const Nav = styled.nav<{ titleExists: boolean }>`
   position: absolute;
   left: 0;
   top: 0;
@@ -42,7 +43,8 @@ const Nav = styled.nav`
   color: ${WHITE};
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: ${({ titleExists }) =>
+    titleExists ? 'space-between' : 'flex-end'};
 `
 const H2 = styled.h2`
   margin: 0;

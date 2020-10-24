@@ -2,7 +2,7 @@ import React from 'react'
 import NavigationBar from '../molecules/NavigationBar'
 import SiteTitle from '../molecules/SiteTitle'
 import styled from 'styled-components'
-import { media } from '../_constants'
+import { media, BLOG_TITLE } from '../_constants'
 
 export interface HeaderProps {
   coverTitle?: string
@@ -13,16 +13,15 @@ const Header: React.FC<HeaderProps> = ({
   coverTitle,
   coverDescription,
 }: HeaderProps) => {
-  const siteTitle = 'One Step Forward'
   const siteSubtitle = 'This is subtitle'
   return (
     <StyledHeader>
       <NavigationBar
-        leftTitle={coverTitle && siteTitle}
+        leftTitle={coverTitle && BLOG_TITLE}
         navItems={['Home', 'About', 'Blog']}
       />
       <SiteTitle
-        title={coverTitle ? coverTitle : siteTitle}
+        title={coverTitle ? coverTitle : BLOG_TITLE}
         subtitle={coverDescription ? coverDescription : siteSubtitle}
       />
     </StyledHeader>

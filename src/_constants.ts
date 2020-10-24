@@ -28,3 +28,5 @@ export const media = {
   laptop: customMediaQuery(BREAKPOINTS.laptop),
   laptopL: customMediaQuery(BREAKPOINTS.laptopL),
 }
+
+export const BLOG_TITLE = 'One Step Forward'

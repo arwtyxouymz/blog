@@ -1,5 +1,6 @@
 import React from 'react'
 import { AppProps } from 'next/app'
+import 'prism-themes/themes/prism-nord.css'
 import '../styles/globals.css'
 import 'normalize.css'
 

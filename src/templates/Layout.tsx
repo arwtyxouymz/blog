@@ -1,24 +1,33 @@
 import React from 'react'
-import Head from '../organisms/Head'
-import Header, { HeaderProps } from '../organisms/Header'
-import Footer from '../organisms/Footer'
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 
-interface Props extends HeaderProps {
-  children: React.ReactNode
-}
+/* interface Props extends HeaderProps {                                        */
+/*   children: React.ReactNode                                                  */
+/* }                                                                            */
 
-const Layout: React.FC<Props> = ({
-  children,
-  coverTitle,
-  coverDescription,
-}: Props) => {
+/* const Layout: React.FC<Props> = ({                                           */
+/*   children,                                                                  */
+/*   coverTitle,                                                                */
+/*   coverDescription,                                                          */
+/* }: Props) => {                                                               */
+/*   return (                                                                   */
+/*     <div>                                                                    */
+/*       <Head />                                                               */
+/*       <Header coverTitle={coverTitle} coverDescription={coverDescription} /> */
+/*       <main>{children}</main>                                                */
+/*       <Footer />                                                             */
+/*     </div>                                                                   */
+/*   )                                                                          */
+/* }                                                                            */
+
+const Layout: React.FC = ({ children }) => {
   return (
-    <div>
-      <Head />
-      <Header coverTitle={coverTitle} coverDescription={coverDescription} />
-      <main>{children}</main>
+    <React.Fragment>
+      <Header />
+      {children}
       <Footer />
-    </div>
+    </React.Fragment>
   )
 }
 

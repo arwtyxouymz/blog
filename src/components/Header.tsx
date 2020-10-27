@@ -21,12 +21,13 @@ const TextContainer = styled.div`
 `
 
 const Header: React.FC = () => {
+  const description = 'Playing, Woking, and Learning is my Engine'
   return (
-    <HeaderTemplate>
+    <HeaderTemplate title={BLOG_TITLE} description={description}>
       <TextContainer>
         <div>
           <Title>{BLOG_TITLE}</Title>
-          <Subtitle>Playing, Woking, and Learning is my Engine</Subtitle>
+          <Subtitle>{description}</Subtitle>
         </div>
       </TextContainer>
     </HeaderTemplate>

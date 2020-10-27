@@ -60,12 +60,19 @@ type Props = {
   tags: string[]
 }
 
-const BlogHeader: React.FC<Props> = ({ title, description, postedAt, tags }: Props) => {
+const BlogHeader: React.FC<Props> = ({
+  title,
+  description,
+  postedAt,
+  tags,
+}: Props) => {
   return (
-    <HeaderTemplate>
+    <HeaderTemplate title={title} description={description}>
       <TextContainer>
         <div>
-          {tags.map(tag => <TagText as="button">{tag}</TagText>)}
+          {tags.map((tag) => (
+            <TagText as="button">{tag}</TagText>
+          ))}
           <BlogTitle>{title}</BlogTitle>
           <Subtitle>{description}</Subtitle>
           <PostedAt>{postedAt}</PostedAt>

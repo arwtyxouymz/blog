@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import CardMain from '../molecules/CardMain'
 import CardFooter from '../molecules/CardFooter'
 
-type Props = {
+interface Props {
   title: string
   description: string
   date: string

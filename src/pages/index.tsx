@@ -1,25 +1,25 @@
 import React from 'react'
 import Link from 'next/link'
 import styled from 'styled-components'
-import Layout from '../templates/Layout'
-import PageHeader from '../molecules/PageHeader'
-import FlexContainer from '../atoms/containers/FlexContainer'
-import Card from '../organisms/Card'
-import { BlogHeader } from '../types'
-import { getMetaData } from '../plugins/markdown'
+import Layout from '@/templates/Layout'
+import Card from '@/organisms/Card'
+import { BlogHeader } from '@/types'
+import { getMetaData } from '@/plugins/markdown'
 
-interface Props {
+const Flex = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+`
+
+type Props = {
   blogHeaders: BlogHeader[]
 }
 
-const Index: React.FC<Props> = ({ blogHeaders }: Props) => {
+const Index: React.FC<Props> = ({ blogHeaders }) => {
   return (
     <Layout>
-      <PageHeader
-        pageTitle="Blog"
-        pageDescription="主に技術系やスタートアップ界隈のことについて書いていきます"
-      ></PageHeader>
-      <FlexContainer wrap={true} justify="center">
+      <Flex>
         {blogHeaders.map((header) => (
           <Link key={header.id} href="/blog/[id]" as={`/blog/${header.id}`}>
             <a>
@@ -32,14 +32,14 @@ const Index: React.FC<Props> = ({ blogHeaders }: Props) => {
             </a>
           </Link>
         ))}
-      </FlexContainer>
+      </Flex>
     </Layout>
   )
 }
 
 export default Index
 
-interface StaticProps {
+type StaticProps = {
   props: { blogHeaders: BlogHeader[] }
 }
 

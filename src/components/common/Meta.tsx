@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import { BLOG_TITLE } from '@/constants'
+import { HOST, BLOG_TITLE } from '@/constants'
 
 export type MetaProps = {
   title: string
@@ -11,7 +11,7 @@ export type MetaProps = {
 const Meta: React.FC<MetaProps> = ({ title, description }: MetaProps) => {
   const ogpImagePath = '/ogp.png'
   const router = useRouter()
-  const currentPath = window.location.host + router.pathname
+  const currentPath = HOST + router.pathname
   return (
     <Head>
       <title key="title">{BLOG_TITLE}</title>

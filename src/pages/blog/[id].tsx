@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
 import { GetStaticProps, GetStaticPaths } from 'next'
+import BlogLayout from '@/templates/BlogLayout'
 import { ParsedUrlQuery } from 'querystring'
 import styled from 'styled-components'
-import Layout from '../../templates/Layout'
-import { getBlogData, getMetaData } from '../../plugins/markdown'
-import Prism from '../../plugins/prism'
-import { BlogHeader } from '../../types'
+import { getBlogData, getMetaData } from '@/plugins/markdown'
+import Prism from '@/plugins/prism'
+import { BlogHeader } from '@/types'
 
 interface Props {
   document: string
@@ -18,11 +18,16 @@ const Blog: React.FC<Props> = ({ document, header }: Props) => {
   })
   return (
     <>
-      <Layout coverTitle={header.title} coverDescription={header.description}>
+      <BlogLayout
+        title={header.title}
+        description={header.description}
+        postedAt={header.date}
+        tags={header.tags}
+      >
         <Wrapper>
           <MarkdownRenderer dangerouslySetInnerHTML={{ __html: document }} />
         </Wrapper>
-      </Layout>
+      </BlogLayout>
     </>
   )
 }

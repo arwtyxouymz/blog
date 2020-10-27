@@ -1,3 +1,4 @@
+export const HOST = 'https://arwtyxouymz.dev/'
 export const BLOG_TITLE = 'One Step Forward'
 
 const customMediaQuery = (maxWidth: number): string =>

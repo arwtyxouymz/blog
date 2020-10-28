@@ -1,75 +1,119 @@
 import React from 'react'
 import styled from 'styled-components'
-import Layout from '../templates/Layout'
-import PageHeader from '../molecules/PageHeader'
-import CircleImage from '../atoms/elements/CircleImage'
-import H3Text from '../atoms/texts/H3Text'
-import PText from '../atoms/texts/PText'
-import TagText from '../atoms/texts/TagText'
-import FlexContainer from '../atoms/containers/FlexContainer'
+import Layout from '@/templates/Layout'
+import { MQ } from '@/constants'
+
+const Flex = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 5% 5%;
+  & > section:first-child {
+    align-self: flex-start;
+  }
+  & > section:last-child {
+    flex: 1;
+  }
+  ${MQ.mobileL} {
+    margin: 10% auto;
+  }
+`
+
+const Section = styled.section`
+  text-align: center;
+
+  ${MQ.tablet} {
+    max-width: 500px;
+  }
+`
+
+const CircleImage = styled.img`
+  border-radius: 50%;
+  width: 400px;
+  height: 400px;
+
+  ${MQ.laptop} {
+    width: 35vw;
+    height: 35vw;
+  }
+
+  ${MQ.mobileL} {
+    width: 60vw;
+    height: 60vw;
+  }
+`
+
+const AccountName = styled.h2`
+  text-align: center;
+  font-size: 40px;
+
+  ${MQ.laptop} {
+    font-size: 35px;
+  }
+
+  ${MQ.tablet} {
+    font-size: 27px;
+  }
+`
+
+const IconContainer = styled.div``
+
+const DescriptionWrapper = styled.div`
+  width: 80%;
+  text-align: left;
+  margin: 0 auto;
+  font-size: 25px;
+
+  ${MQ.laptop} {
+    font-size: 22px;
+  }
+  ${MQ.tablet} {
+    width: 70%;
+    font-size: 18px;
+  }
+  ${MQ.mobileL} {
+    width: 80%;
+    font-size: 1em;
+  }
+`
+
+const SkillSet = styled.ul`
+  line-height: 1.5em;
+
+  ${MQ.mobileS} {
+    padding-inline-start: 20px;
+  }
+`
 
 const About: React.FC = () => {
   return (
     <Layout>
-      <PageHeader
-        pageTitle="About"
-        pageDescription="SNSとか気軽にフォローしてください"
-      />
-
-      <WrapperFlexContainer justify="center">
-        <section>
-          <CircleImage src="/profile.png" size={300} margin="15px" />
-        </section>
+      <Flex>
         <Section>
-          <H3Text>arwtyxouymz</H3Text>
-          <HorizontalLine />
-          <PText>都内でエンジニアをしています．</PText>
-          <PText>
-            学生時代メインはロボティクスでたまにWeb系のインターンとかしてました．
-          </PText>
-          <PText>
-            フロントよりもバックエンドが好き． Vue.jsよりReactが好き．
-          </PText>
-          <PText>GoとRustで悩んでRustを選んだことは後悔してません．</PText>
-          <h4>Skills</h4>
-          <StyledUl>
-            <li>Typescript / Rust / Python</li>
-            <li>React / Vue.js / Next.js / Express.js</li>
-            <li>PostgreSQL / MySQL</li>
-            <li>Neovim / ROS / Docker / AWS</li>
-          </StyledUl>
-          <FlexContainer align="center" justify="space-evenly">
-            <TagText color="#1DA1F2">Twitter</TagText>
-            <TagText color="#3C5A99">Facebook</TagText>
-            <TagText color="#CF2E92">Instagram</TagText>
-            <TagText color="#24292e">GitHub</TagText>
-            <TagText color="#55C500">Qiita</TagText>
-          </FlexContainer>
+          <CircleImage src="/profile.png" />
         </Section>
-      </WrapperFlexContainer>
+        <Section>
+          <AccountName>@arwtyxoutmz</AccountName>
+          <IconContainer></IconContainer>
+          <DescriptionWrapper>
+            <p>
+              都内でエンジニアをしています。学生時代メインはロボティクスでたまにWeb系のインターンとかしていました。
+              仕事ではバックエンドを触っていますが、フロントも書きます。Vue.jsよりReactが好き。
+              最近はRustを勉強しながらスプラトゥーンにハマってます。
+            </p>
+            <h4>Skillset</h4>
+            <SkillSet>
+              <li>Typescript/Python/Rust</li>
+              <li>React/Vue.js/Next.js/Express.js</li>
+              <li>MySQL/Postgresql</li>
+              <li>Neovim/AWS/Docker/ROS</li>
+            </SkillSet>
+          </DescriptionWrapper>
+        </Section>
+      </Flex>
     </Layout>
   )
 }
 
 export default About
-
-const WrapperFlexContainer = styled(FlexContainer)`
-  margin: 40px auto;
-  width: 100%;
-`
-
-const HorizontalLine = styled.div`
-  width: 150px;
-  border: 0.5px solid;
-  margin: 20px 0;
-`
-
-const Section = styled.section`
-  width: 25%;
-  margin: 0 20px;
-`
-
-const StyledUl = styled.ul`
-  list-style: none;
-  padding-inline-start: 20px;
-`

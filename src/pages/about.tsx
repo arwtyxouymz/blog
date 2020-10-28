@@ -1,6 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import Layout from '@/templates/Layout'
+import IconLink from '@/components/common/IconLink'
+import TwitterIcon from '@/components/common/TwitterIcon'
+import GithubIcon from '@/components/common/GithubIcon'
 import { MQ } from '@/constants'
 
 const Flex = styled.div`
@@ -8,12 +11,15 @@ const Flex = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin: 5% 5%;
+  margin: 5% 10%;
   & > section:first-child {
     align-self: flex-start;
   }
   & > section:last-child {
     flex: 1;
+  }
+  ${MQ.laptop} {
+    margin: 5% 5%;
   }
   ${MQ.mobileL} {
     margin: 10% auto;
@@ -22,22 +28,21 @@ const Flex = styled.div`
 
 const Section = styled.section`
   text-align: center;
-
-  ${MQ.tablet} {
-    max-width: 500px;
-  }
 `
 
 const CircleImage = styled.img`
   border-radius: 50%;
-  width: 400px;
-  height: 400px;
+  width: 300px;
+  height: 300px;
 
   ${MQ.laptop} {
-    width: 35vw;
-    height: 35vw;
+    width: 30vw;
+    height: 30vw;
   }
-
+  ${MQ.tablet} {
+    width: 350px;
+    height: 350px;
+  }
   ${MQ.mobileL} {
     width: 60vw;
     height: 60vw;
@@ -46,31 +51,42 @@ const CircleImage = styled.img`
 
 const AccountName = styled.h2`
   text-align: center;
-  font-size: 40px;
+  font-size: 30px;
 
   ${MQ.laptop} {
-    font-size: 35px;
+    font-size: 27px;
   }
 
   ${MQ.tablet} {
-    font-size: 27px;
+    font-size: 25px;
   }
 `
 
-const IconContainer = styled.div``
+const IconContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & > * {
+    margin: 0 10px;
+    width: 40px;
+    height: 40px;
+
+    ${MQ.mobileL} {
+      width: 10vw;
+      height: 10vw;
+    }
+  }
+`
 
 const DescriptionWrapper = styled.div`
+  min-width: 50vw;
   width: 80%;
   text-align: left;
   margin: 0 auto;
-  font-size: 25px;
 
-  ${MQ.laptop} {
-    font-size: 22px;
-  }
   ${MQ.tablet} {
     width: 70%;
-    font-size: 18px;
   }
   ${MQ.mobileL} {
     width: 80%;
@@ -95,7 +111,14 @@ const About: React.FC = () => {
         </Section>
         <Section>
           <AccountName>@arwtyxoutmz</AccountName>
-          <IconContainer></IconContainer>
+          <IconContainer>
+            <IconLink url="https://twitter.com/arwtyxouymz">
+              <TwitterIcon />
+            </IconLink>
+            <IconLink url="https://github.com/arwtyxouymz">
+              <GithubIcon />
+            </IconLink>
+          </IconContainer>
           <DescriptionWrapper>
             <p>
               都内でエンジニアをしています。学生時代メインはロボティクスでたまにWeb系のインターンとかしていました。

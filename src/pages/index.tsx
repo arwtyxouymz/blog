@@ -2,14 +2,16 @@ import React from 'react'
 import Link from 'next/link'
 import styled from 'styled-components'
 import Layout from '@/templates/Layout'
-import Card from '@/organisms/Card'
+import Card from '@/components/Card'
 import { BlogHeader } from '@/types'
 import { getMetaData } from '@/plugins/markdown'
 
 const Flex = styled.div`
+  width: 90%;
+  margin: 3% auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
 `
 
 type Props = {

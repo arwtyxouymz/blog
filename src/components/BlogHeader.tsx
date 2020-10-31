@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import HeaderTemplate from '@/components/common/HeaderTemplate'
 import Title from '@/components/common/Title'
 import Subtitle from '@/components/common/Subtitle'
+import Tag from '@/components/common/Tag'
 import { MQ } from '@/constants'
 
 const TextContainer = styled.div`
@@ -17,22 +18,6 @@ const TextContainer = styled.div`
   }
   ${MQ.mobileL} {
     height: 50vh;
-  }
-`
-
-const TagText = styled.span`
-  color: white;
-  background-color: transparent;
-  border: 1px solid white;
-  border-radius: 999em;
-  padding: 0.1em 1em;
-  margin: 0 0.1em;
-  font-size: 18px;
-  ${MQ.tablet} {
-    font-size: 15px;
-  }
-  ${MQ.mobileL} {
-    font-size: 12px;
   }
 `
 
@@ -71,7 +56,9 @@ const BlogHeader: React.FC<Props> = ({
       <TextContainer>
         <div>
           {tags.map((tag) => (
-            <TagText as="button">{tag}</TagText>
+            <Tag as="button" key={tag}>
+              {tag}
+            </Tag>
           ))}
           <BlogTitle>{title}</BlogTitle>
           <Subtitle>{description}</Subtitle>

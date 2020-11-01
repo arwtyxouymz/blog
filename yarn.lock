@@ -4228,6 +4228,11 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
+markdown-it-image-lazy-loading@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/markdown-it-image-lazy-loading/-/markdown-it-image-lazy-loading-1.0.2.tgz#fbacba9818a9657286295b2a9a15ec722b27d550"
+  integrity sha512-FBGKcF+zDSE7HEN9rGar6+36RtO3ozakqNLpbl2uL91DZQEIkXxN8uUZXJGCjvQL4O5f9IxeP5lagxX3FZ2SgA==
+
 markdown-it-meta@^0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/markdown-it-meta/-/markdown-it-meta-0.0.1.tgz#d75b68f115659caf568e4ad43cb460a471248c39"

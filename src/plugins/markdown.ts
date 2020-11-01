@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import MarkdownIt from 'markdown-it'
+import { escapeHtml } from 'markdown-it/lib/common/utils'
 import meta from 'markdown-it-meta'
 import { BlogHeader } from '../types'
 
@@ -15,6 +16,42 @@ export function getMetaData(): BlogHeader[] {
     })
 }
 
+function rendererFence(md: MarkdownIt) {
+  const defaultRender =
+    md.renderer.rules.fence ||
+    function (tokens, idx, options, _, self) {
+      return self.renderToken(tokens, idx, options)
+    }
+
+  // override fence
+  md.renderer.rules.fence = function (...args) {
+    const [tokens, idx] = args
+    // ex) python:main.py
+    const langInfo = tokens[idx].info.split(/:/)
+    const langName = langInfo?.length ? langInfo[0].trim() : ''
+    const fileName = langName.length && langInfo[1] ? langInfo[1] : null
+
+    tokens[idx].info = langName
+    const originalHTML = defaultRender(...args)
+    if (tokens[idx].content.length === 0) {
+      return originalHTML
+    }
+
+    const fileNameHTML = fileName
+      ? `<div class="code-block-filename-container"><span class="code-block-filename">${escapeHtml(
+          fileName
+        )}</span></div>`
+      : ''
+
+    return `
+      <div class="code-block-container">
+      ${fileNameHTML}
+      ${originalHTML}
+      </div>
+    `
+  }
+}
+
 interface GetBlogDataResult {
   document: string
   meta: BlogHeader
@@ -25,7 +62,7 @@ export function getBlogData(id: string): GetBlogDataResult {
   const fileContents = fs.readFileSync(fullPath, 'utf8')
 
   const md = new MarkdownIt()
-  md.use(meta)
+  md.use(meta).use(rendererFence).use(require('markdown-it-image-lazy-loading'))
   const renderedDocument = md.render(fileContents)
   return {
     document: renderedDocument,

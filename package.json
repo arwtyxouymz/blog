@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "markdown-it": "^11.0.0",
+    "markdown-it-image-lazy-loading": "^1.0.2",
     "markdown-it-meta": "^0.0.1",
     "next": "9.5.3",
     "normalize.css": "^8.0.1",

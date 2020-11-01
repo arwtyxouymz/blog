@@ -91,10 +91,30 @@ const MarkdownRenderer = styled.article`
     }
   }
 
-  & pre {
-    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14),
-      0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
-    font-size: 0.9em;
+  & div.code-block-container {
+    background: #1e1e1e;
+    margin: 0.5em 0;
+
+    & .code-block-filename-container {
+      margin-bottom: -0.3em;
+
+      & span {
+        display: inline-block;
+        color: #fff;
+        padding: 0 6px 0 8px;
+        font-size: 12px;
+        line-height: 24px;
+        background-color: rgba(177, 197, 247, 0.25);
+        white-space: no-wrap;
+      }
+    }
+
+    & pre {
+      margin: 0;
+      box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14),
+        0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+      font-size: 0.9em;
+    }
   }
 
   & hr {

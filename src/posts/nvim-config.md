@@ -70,14 +70,14 @@ cccccccccccc
 # Code
 
 This is a simple `python` script.
-```python:sample.py
+```python
 import numpy as np
 
 def main():
   a = np.array()
 ```
 
-```javascript:sample.js
+```js:sample.js
 const great = () => {
   console.log("Awesome")
 }

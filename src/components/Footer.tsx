@@ -16,6 +16,7 @@ const StyledFooter = styled.footer<FooterProps>`
 `
 
 const Copyright = styled.p`
+  margin-bottom: 0;
   font-size: 18px;
   ${MQ.tablet} {
     font-size: 15px;

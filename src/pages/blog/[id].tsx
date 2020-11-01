@@ -9,9 +9,11 @@ import BlogLayout from '@/templates/BlogLayout'
 import MarkdownToHtml from '@/components/common/MarkdownToHtml'
 
 const Wrapper = styled.div`
-  padding: 48px 34px;
-  margin: auto;
+  padding: 24px 34px;
+  margin: 34px auto;
   max-width: 900px;
+  background-color: #fff;
+  border-radius: 10px;
 `
 
 type Props = {

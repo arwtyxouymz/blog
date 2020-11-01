@@ -29,11 +29,14 @@ const Wrapper = styled.div`
 `
 
 const TitleContainer = styled.div`
+  background: #ffffff;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 70%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 `
 
 const Title = styled.h3`

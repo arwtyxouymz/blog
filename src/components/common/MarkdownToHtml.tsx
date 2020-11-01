@@ -16,7 +16,7 @@ const MarkdownRenderer = styled.article`
   }
 
   & h1 {
-    border-bottom: 1px solid rgba(92, 147, 187, 0.17);
+    border-bottom: 2px solid rgba(92, 147, 187, 0.17);
     padding-bottom: 0.2em;
     margin-bottom: 0.8rem;
     font-size: 1.7em;

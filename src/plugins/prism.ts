@@ -1,6 +1,7 @@
 import Prism from 'prismjs'
 import 'prismjs/components/prism-go'
 import 'prismjs/components/prism-javascript'
+import 'prismjs/components/prism-typescript'
 import 'prismjs/components/prism-docker'
 import 'prismjs/components/prism-diff'
 import 'prismjs/components/prism-hcl'

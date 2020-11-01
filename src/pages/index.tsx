@@ -25,12 +25,7 @@ const Index: React.FC<Props> = ({ blogHeaders }) => {
         {blogHeaders.map((header) => (
           <Link key={header.id} href="/blog/[id]" as={`/blog/${header.id}`}>
             <a>
-              <Card
-                title={header.title}
-                description={header.description}
-                date={header.date}
-                tags={header.tags}
-              />
+              <Card {...header} />
             </a>
           </Link>
         ))}

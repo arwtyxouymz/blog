@@ -1,10 +1,13 @@
 import React from 'react'
+import { useRouter } from 'next/router'
 import styled from 'styled-components'
 import HeaderTemplate from '@/components/common/HeaderTemplate'
 import Title from '@/components/common/Title'
 import Subtitle from '@/components/common/Subtitle'
 import Tag from '@/components/common/Tag'
-import { MQ } from '@/constants'
+import IconLink from '@/components/common/IconLink'
+import TwitterIcon from '@/components/common/TwitterIcon'
+import { MQ, HOST } from '@/constants'
 
 const TextContainer = styled.div`
   text-align: left;
@@ -38,6 +41,20 @@ const PostedAt = styled.p`
   font-style: italic;
 `
 
+const IconContainer = styled.div`
+  display: flex;
+
+  & > * {
+    width: 40px;
+    height: 40px;
+
+    ${MQ.mobileL} {
+      width: 10vw;
+      height: 10vw;
+    }
+  }
+`
+
 type Props = {
   title: string
   description: string
@@ -51,6 +68,7 @@ const BlogHeader: React.FC<Props> = ({
   postedAt,
   tags,
 }: Props) => {
+  const router = useRouter()
   return (
     <HeaderTemplate title={title} description={description}>
       <TextContainer>
@@ -63,6 +81,15 @@ const BlogHeader: React.FC<Props> = ({
           <BlogTitle>{title}</BlogTitle>
           <Subtitle>{description}</Subtitle>
           <PostedAt>{postedAt}</PostedAt>
+          <IconContainer>
+            <IconLink
+              url={`https://twitter.com/intent/tweet?url=${
+                HOST + router.pathname
+              }`}
+            >
+              <TwitterIcon color="white" />
+            </IconLink>
+          </IconContainer>
         </div>
       </TextContainer>
     </HeaderTemplate>

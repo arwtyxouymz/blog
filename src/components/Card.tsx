@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Tag from '@/components/common/Tag'
+import { BlogHeader } from '@/types'
 import { MQ } from '@/constants'
 
 const Wrapper = styled.div`
@@ -52,20 +53,17 @@ const InfoContainer = styled.div`
   color: #5c5c5c;
 `
 
+const TagText = styled(Tag)`
+  font-size: 0.8em;
+`
+
 const DateText = styled.div`
   width: 100%;
   text-align: right;
   font-style: italic;
 `
 
-interface Props {
-  title: string
-  description: string
-  date: string
-  tags: string[]
-}
-
-const Card: React.FC<Props> = ({ title, description, date, tags }: Props) => {
+const Card: React.FC<BlogHeader> = ({ title, description, postedAt, tags }) => {
   return (
     <Wrapper>
       <TitleContainer>
@@ -75,12 +73,12 @@ const Card: React.FC<Props> = ({ title, description, date, tags }: Props) => {
       <InfoContainer>
         <div>
           {tags.map((tag) => (
-            <Tag color="#5C5C5C" key={tag}>
+            <TagText color="#5C5C5C" key={tag}>
               {tag}
-            </Tag>
+            </TagText>
           ))}
         </div>
-        <DateText>{date}</DateText>
+        <DateText>{postedAt}</DateText>
       </InfoContainer>
     </Wrapper>
   )

@@ -1,6 +1,10 @@
 import React from 'react'
 
-const TwitterIcon: React.FC = () => {
+type Props = {
+  color?: string
+}
+
+const TwitterIcon: React.FC<Props> = ({ color }) => {
   return (
     <svg viewBox="328 355 335 276" xmlns="http://www.w3.org/2000/svg">
       <path
@@ -20,7 +24,7 @@ const TwitterIcon: React.FC = () => {
     A 117, 117 0 0 0 662, 390
     A  65,  65 0 0 1 630, 425
     Z"
-        style={{ fill: '#3BA9EE' }}
+        style={{ fill: `${color || '#3BA9EE'}` }}
       />
     </svg>
   )

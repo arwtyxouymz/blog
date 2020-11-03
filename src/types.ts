@@ -5,3 +5,7 @@ export type BlogHeader = {
   tags: string[]
   postedAt: string
 }
+
+export type Event = {
+  [key: string]: string
+}

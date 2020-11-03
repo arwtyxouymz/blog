@@ -3,7 +3,7 @@ import path from 'path'
 import MarkdownIt from 'markdown-it'
 import { escapeHtml } from 'markdown-it/lib/common/utils'
 import meta from 'markdown-it-meta'
-import { BlogHeaderProps } from '../types'
+import { BlogHeaderProps } from '@/types'
 
 const postsDirectory = path.join(process.cwd(), 'src/posts')
 
@@ -57,12 +57,16 @@ interface GetBlogDataResult {
   meta: BlogHeaderProps
 }
 
+interface MarkdownItExtended extends MarkdownIt {
+  meta: any
+}
+
 export function getBlogData(id: string): GetBlogDataResult {
   const fullPath = path.join(postsDirectory, `${id}.md`)
   const fileContents = fs.readFileSync(fullPath, 'utf8')
 
-  const md = new MarkdownIt()
-  md.use(meta).use(rendererFence).use(require('markdown-it-image-lazy-loading'))
+  const md = new MarkdownIt() as MarkdownItExtended
+  md.use(rendererFence).use(meta).use(require('markdown-it-image-lazy-loading'))
   const renderedDocument = md.render(fileContents)
   return {
     document: renderedDocument,

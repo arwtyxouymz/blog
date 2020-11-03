@@ -1,4 +1,4 @@
-export type BlogHeader = {
+export type BlogHeaderProps = {
   id: string
   title: string
   description: string

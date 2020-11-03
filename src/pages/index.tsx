@@ -3,7 +3,7 @@ import Link from 'next/link'
 import styled from 'styled-components'
 import Layout from '@/templates/Layout'
 import Card from '@/components/Card'
-import { BlogHeader } from '@/types'
+import { BlogHeaderProps } from '@/types'
 import { getMetaData } from '@/plugins/markdown'
 
 const Flex = styled.div`
@@ -15,7 +15,7 @@ const Flex = styled.div`
 `
 
 type Props = {
-  blogHeaders: BlogHeader[]
+  blogHeaders: BlogHeaderProps[]
 }
 
 const Index: React.FC<Props> = ({ blogHeaders }) => {
@@ -37,7 +37,7 @@ const Index: React.FC<Props> = ({ blogHeaders }) => {
 export default Index
 
 type StaticProps = {
-  props: { blogHeaders: BlogHeader[] }
+  props: { blogHeaders: BlogHeaderProps[] }
 }
 
 export async function getStaticProps(): Promise<StaticProps> {

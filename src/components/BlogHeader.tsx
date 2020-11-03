@@ -1,5 +1,4 @@
 import React from 'react'
-import { useRouter } from 'next/router'
 import styled from 'styled-components'
 import HeaderTemplate from '@/components/common/HeaderTemplate'
 import Title from '@/components/common/Title'
@@ -7,7 +6,9 @@ import Subtitle from '@/components/common/Subtitle'
 import Tag from '@/components/common/Tag'
 import IconLink from '@/components/common/IconLink'
 import TwitterIcon from '@/components/common/TwitterIcon'
+import { BlogHeaderProps } from '@/types'
 import { MQ, HOST } from '@/constants'
+import { getBlogPath } from '@/utils'
 
 const TextContainer = styled.div`
   text-align: left;
@@ -55,22 +56,19 @@ const IconContainer = styled.div`
   }
 `
 
-type Props = {
-  title: string
-  description: string
-  postedAt: string
-  tags: string[]
-}
-
-const BlogHeader: React.FC<Props> = ({
+const BlogHeader: React.FC<BlogHeaderProps> = ({
+  id,
   title,
   description,
   postedAt,
   tags,
-}: Props) => {
-  const router = useRouter()
+}) => {
   return (
-    <HeaderTemplate title={title} description={description}>
+    <HeaderTemplate
+      title={title}
+      description={description}
+      path={getBlogPath(id)}
+    >
       <TextContainer>
         <div>
           {tags.map((tag) => (
@@ -84,7 +82,7 @@ const BlogHeader: React.FC<Props> = ({
           <IconContainer>
             <IconLink
               url={`https://twitter.com/intent/tweet?url=${
-                HOST + router.pathname
+                HOST + getBlogPath(id)
               }`}
             >
               <TwitterIcon color="white" />

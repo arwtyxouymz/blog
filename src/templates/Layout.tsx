@@ -1,30 +1,11 @@
 import React from 'react'
-import Header from '@/components/Header'
+import Header, { HeaderProps } from '@/components/Header'
 import Footer from '@/components/Footer'
 
-/* interface Props extends HeaderProps {                                        */
-/*   children: React.ReactNode                                                  */
-/* }                                                                            */
-
-/* const Layout: React.FC<Props> = ({                                           */
-/*   children,                                                                  */
-/*   coverTitle,                                                                */
-/*   coverDescription,                                                          */
-/* }: Props) => {                                                               */
-/*   return (                                                                   */
-/*     <div>                                                                    */
-/*       <Head />                                                               */
-/*       <Header coverTitle={coverTitle} coverDescription={coverDescription} /> */
-/*       <main>{children}</main>                                                */
-/*       <Footer />                                                             */
-/*     </div>                                                                   */
-/*   )                                                                          */
-/* }                                                                            */
-
-const Layout: React.FC = ({ children }) => {
+const Layout: React.FC<HeaderProps> = ({ path, children }) => {
   return (
     <React.Fragment>
-      <Header />
+      <Header path={path} />
       {children}
       <Footer />
     </React.Fragment>

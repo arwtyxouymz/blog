@@ -1,29 +1,16 @@
 import React from 'react'
 import BlogHeader from '@/components/BlogHeader'
 import Footer from '@/components/Footer'
+import { BlogHeaderProps } from '@/types'
 
-type Props = {
-  title: string
-  description: string
-  postedAt: string
-  tags: string[]
+interface Props {
+  header: BlogHeaderProps
 }
 
-const BlogLayout: React.FC<Props> = ({
-  title,
-  description,
-  postedAt,
-  tags,
-  children,
-}) => {
+const BlogLayout: React.FC<Props> = ({ header, children }) => {
   return (
     <React.Fragment>
-      <BlogHeader
-        title={title}
-        description={description}
-        postedAt={postedAt}
-        tags={tags}
-      />
+      <BlogHeader {...header} />
       {children}
       <Footer />
     </React.Fragment>

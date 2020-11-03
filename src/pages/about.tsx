@@ -104,7 +104,7 @@ const SkillSet = styled.ul`
 
 const About: React.FC = () => {
   return (
-    <Layout>
+    <Layout path="/about">
       <Flex>
         <Section>
           <CircleImage src="/profile.png" />

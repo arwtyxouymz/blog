@@ -3,11 +3,11 @@ import path from 'path'
 import MarkdownIt from 'markdown-it'
 import { escapeHtml } from 'markdown-it/lib/common/utils'
 import meta from 'markdown-it-meta'
-import { BlogHeader } from '../types'
+import { BlogHeaderProps } from '../types'
 
 const postsDirectory = path.join(process.cwd(), 'src/posts')
 
-export function getMetaData(): BlogHeader[] {
+export function getMetaData(): BlogHeaderProps[] {
   const fileNames = fs.readdirSync(postsDirectory)
   return fileNames
     .map((file) => getBlogData(file.replace(/\.md$/, '')).meta)
@@ -54,7 +54,7 @@ function rendererFence(md: MarkdownIt) {
 
 interface GetBlogDataResult {
   document: string
-  meta: BlogHeader
+  meta: BlogHeaderProps
 }
 
 export function getBlogData(id: string): GetBlogDataResult {

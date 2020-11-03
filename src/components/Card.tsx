@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Tag from '@/components/common/Tag'
-import { BlogHeader } from '@/types'
+import { BlogHeaderProps } from '@/types'
 import { MQ } from '@/constants'
 
 const Wrapper = styled.div`
@@ -66,7 +66,12 @@ const DateText = styled.div`
   font-style: italic;
 `
 
-const Card: React.FC<BlogHeader> = ({ title, description, postedAt, tags }) => {
+const Card: React.FC<BlogHeaderProps> = ({
+  title,
+  description,
+  postedAt,
+  tags,
+}) => {
   return (
     <Wrapper>
       <TitleContainer>

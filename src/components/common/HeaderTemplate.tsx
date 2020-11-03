@@ -12,11 +12,12 @@ const StyledHeader = styled.header`
 const HeaderTemplate: React.FC<MetaProps> = ({
   title,
   description,
+  path,
   children,
 }) => {
   return (
     <React.Fragment>
-      <Meta title={title} description={description} />
+      <Meta title={title} description={description} path={path} />
       <StyledHeader>
         <NavigationBar />
         {children}

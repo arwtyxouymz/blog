@@ -20,10 +20,14 @@ const TextContainer = styled.div`
   }
 `
 
-const Header: React.FC = () => {
+export interface HeaderProps {
+  path?: string
+}
+
+const Header: React.FC<HeaderProps> = ({ path }) => {
   const description = 'Playing, Woking, and Learning is my Engine'
   return (
-    <HeaderTemplate title={BLOG_TITLE} description={description}>
+    <HeaderTemplate title={BLOG_TITLE} description={description} path={path}>
       <TextContainer>
         <div>
           <Title>{BLOG_TITLE}</Title>

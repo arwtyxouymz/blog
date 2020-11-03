@@ -1,4 +1,7 @@
-export const HOST = 'https://arwtyxouymz.dev'
+export const HOST =
+  process.env.NODE_ENV === 'production'
+    ? 'https://arwtyxouymz.dev'
+    : 'http://localhost:3000'
 export const BLOG_TITLE = 'One Step Forward'
 
 const customMediaQuery = (maxWidth: number): string =>

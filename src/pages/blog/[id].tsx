@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react'
 import { GetStaticProps, GetStaticPaths } from 'next'
-import { ParsedUrlQuery } from 'querystring'
 import styled from 'styled-components'
 import { getBlogData, getMetaData } from '@/plugins/markdown'
 import Prism from '@/plugins/prism'
-import { BlogHeader } from '@/types'
+import { BlogHeaderProps } from '@/types'
 import BlogLayout from '@/templates/BlogLayout'
 import MarkdownToHtml from '@/components/common/MarkdownToHtml'
 
@@ -18,7 +17,7 @@ const Wrapper = styled.div`
 
 type Props = {
   source: string
-  header: BlogHeader
+  header: BlogHeaderProps
 }
 
 const Blog: React.FC<Props> = ({ source, header }: Props) => {
@@ -26,7 +25,7 @@ const Blog: React.FC<Props> = ({ source, header }: Props) => {
     Prism.highlightAll()
   })
   return (
-    <BlogLayout {...header}>
+    <BlogLayout header={header}>
       <Wrapper>
         <MarkdownToHtml html={source} />
       </Wrapper>
@@ -34,16 +33,8 @@ const Blog: React.FC<Props> = ({ source, header }: Props) => {
   )
 }
 
-export default Blog
-
-interface Params extends ParsedUrlQuery {
-  id: string
-}
-
-export const getStaticProps: GetStaticProps<Props, Params> = async ({
-  params,
-}) => {
-  const id = params ? params.id : ''
+export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
+  const id = params?.id as string
   const blogData = getBlogData(id)
   return {
     props: {
@@ -67,3 +58,5 @@ export const getStaticPaths: GetStaticPaths = async () => {
     fallback: false,
   }
 }
+
+export default Blog

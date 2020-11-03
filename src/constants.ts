@@ -1,6 +1,6 @@
 export const HOST =
   process.env.NODE_ENV === 'production'
-    ? 'https://arwtyxouymz.dev'
+    ? 'https://arwtyxouymz.xyz'
     : 'http://localhost:3000'
 export const BLOG_TITLE = 'One Step Forward'
 

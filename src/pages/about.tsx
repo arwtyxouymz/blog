@@ -1,4 +1,5 @@
 import React from 'react'
+import { NextPage } from 'next'
 import styled from 'styled-components'
 import Layout from '@/templates/Layout'
 import IconLink from '@/components/common/IconLink'
@@ -102,7 +103,7 @@ const SkillSet = styled.ul`
   }
 `
 
-const About: React.FC = () => {
+const About: NextPage = () => {
   return (
     <Layout path="/about">
       <Flex>

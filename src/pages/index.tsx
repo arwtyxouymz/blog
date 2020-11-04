@@ -1,4 +1,5 @@
 import React from 'react'
+import { NextPage } from 'next'
 import Link from 'next/link'
 import styled from 'styled-components'
 import Layout from '@/templates/Layout'
@@ -18,7 +19,7 @@ type Props = {
   blogHeaders: BlogHeaderProps[]
 }
 
-const Index: React.FC<Props> = ({ blogHeaders }) => {
+const Index: NextPage<Props> = ({ blogHeaders }) => {
   return (
     <Layout>
       <Flex>

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { NextPage } from 'next'
 import { GetStaticProps, GetStaticPaths } from 'next'
 import styled from 'styled-components'
 import { getBlogData, getMetaData } from '@/plugins/markdown'
@@ -20,7 +21,7 @@ type Props = {
   header: BlogHeaderProps
 }
 
-const Blog: React.FC<Props> = ({ source, header }: Props) => {
+const Blog: NextPage<Props> = ({ source, header }) => {
   useEffect(() => {
     Prism.highlightAll()
   })
